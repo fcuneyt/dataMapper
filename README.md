@@ -52,3 +52,10 @@ If you want to map a part of your service response. You can do it as follows.
 	dataMapper.mapResponse(response.Items, viewModel.ServiceData, null, null);
 ```
 As a result; dataMapper will fill your ServiceData property with "Items" property of your service response.
+
+#Installation
+
+##Nuget
+```
+Install-Package dataMapper.js
+```
