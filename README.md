@@ -59,3 +59,8 @@ As a result; dataMapper will fill your ServiceData property with "Items" propert
 ```
 Install-Package dataMapper.js
 ```
+
+##Bower
+```
+bower install dataMapper
+```
