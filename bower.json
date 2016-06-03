@@ -1,0 +1,28 @@
+{
+  "name": "data-mapper",
+  "authors": [
+    "Tufan Tunc <tufan.tunc.91@gmail.com>",
+    "Cuneyt Bekar <f.cuneytbekar@hotmail.com>"
+  ],
+  "description": "Library can map your data (e.g. ajax service response) to your objects.",
+  "main": "dataMapper.js",
+  "keywords": [
+    "mapping",
+    "ajax",
+    "json",
+    "mapper",
+    "data"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "moduleType": [
+    "globals"
+  ]
+}
