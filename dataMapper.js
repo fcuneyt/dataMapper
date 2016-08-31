@@ -47,7 +47,11 @@ var dataMapper = {};
 		return result;
 	};
 	var setValue = function (instance, attribute, value) {
-		instance[attribute] = getData(value);
+		if (typeof window.ko !== "undefined" && ko.isObservable(instance[attribute])) {
+			instance[attribute](value);
+		} else {
+			instance[attribute] = getData(value);
+		}
 	};
 	self.mapResponse = function (response, viewModel, listFunc, primitiveFunc) {
 		listFunction = listFunc;
