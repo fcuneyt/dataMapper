@@ -62,5 +62,5 @@ Install-Package dataMapper.js
 
 ##Bower
 ```
-bower install dataMapper
+bower install datamapper
 ```
