@@ -19,26 +19,30 @@ var dataMapper = {};
 	};
 	var getData = function (value) {
 		var result;
-		if (Object.prototype.toString.call(value) === "[object Array]") {
-			var array = [];
-			for (var j = 0; j < value.length; j++) {
-				var item = value[j];
-				array.push(getData(item));
-			}
-			result = listFunction
-				? listFunction(array)
-				: array;
-		} else if (typeof (value) == "object") {
-			var objectKeys = Object.keys(value);
-			result = {};
-			for (var i = 0; i < objectKeys.length; i++) {
-				var objectItem = objectKeys[i];
-				result[objectItem] = getData(value[objectItem]);
+		if (value !== null && typeof value !== "undefined") {
+			if (Object.prototype.toString.call(value) === "[object Array]") {
+				var array = [];
+				for (var j = 0; j < value.length; j++) {
+					var item = value[j];
+					array.push(getData(item));
+				}
+				result = listFunction
+					? listFunction(array)
+					: array;
+			} else if (typeof (value) == "object") {
+				var objectKeys = Object.keys(value);
+				result = {};
+				for (var i = 0; i < objectKeys.length; i++) {
+					var objectItem = objectKeys[i];
+					result[objectItem] = getData(value[objectItem]);
+				}
+			} else {
+				result = primitiveFunction
+					? primitiveFunction(value)
+					: value;
 			}
 		} else {
-			result = primitiveFunction
-				? primitiveFunction(value)
-				: value;
+			result = null;
 		}
 		return result;
 	};
