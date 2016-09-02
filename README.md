@@ -55,11 +55,12 @@ As a result; dataMapper will fill your ServiceData property with "Items" propert
 
 ##mapConfig Sample
 
+```javascript
 [
 	{source: 'sourceField', destination: 'destinationField'},
 	{source: 'sourceField', ignore: true}
 ]
-
+```
 If mapConfig parameter is null or empty it will run using default mappings.
 
 #Installation
