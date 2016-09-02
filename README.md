@@ -57,8 +57,8 @@ As a result; dataMapper will fill your ServiceData property with "Items" propert
 
 ```javascript
 [
-	{source: 'sourceField', destination: 'destinationField'},
-	{source: 'sourceField', ignore: true}
+	{ source: 'sourceField', destination: 'destinationField' },
+	{ source: 'sourceField', ignore: true }
 ]
 ```
 If mapConfig parameter is null or empty it will run using default mappings.
