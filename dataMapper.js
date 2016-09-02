@@ -54,6 +54,9 @@ var dataMapper = {};
 		}
 	};
 	var getAttributeFromMapConfig = function (mapConfig, source) {
+		if (!mapConfig) {
+			return null;
+		}
 		for (var i = 0; i < mapConfig.length; i++) {
 			var config = mapConfig[i];
 			if (config.source === source) {
