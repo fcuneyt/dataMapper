@@ -53,7 +53,20 @@ var dataMapper = {};
 			instance[attribute] = getData(value);
 		}
 	};
-	self.mapResponse = function (response, viewModel, listFunc, primitiveFunc) {
+	var getAttributeFromMapConfig = function (mapConfig, source) {
+		for (var i = 0; i < mapConfig.length; i++) {
+			var config = mapConfig[i];
+			if (config.source === source) {
+				if (config.ignore) {
+					return undefined;
+				} else {
+					return config.destination;
+				}
+			}
+		}
+		return null;
+	};
+	self.mapResponse = function (response, viewModel, listFunc, primitiveFunc, mapConfig) {
 		listFunction = listFunc;
 		primitiveFunction = primitiveFunc;
 		var responseKeys = Object.keys(response);
@@ -61,9 +74,15 @@ var dataMapper = {};
 		for (var i = 0; i < responseKeys.length; i++) {
 			var key = responseKeys[i];
 
-			var viewModelAttribute = getViewModelAttribute(viewModelKeys, key);
+			var config = getAttributeFromMapConfig(mapConfig, key);
 
-			setValue(viewModel, viewModelAttribute, response[key]);
+			if (typeof config !== "undefined") {
+				var viewModelAttribute = config === null
+					? getViewModelAttribute(viewModelKeys, key)
+					: config;
+
+				setValue(viewModel, viewModelAttribute, response[key]);
+			}
 		}
 	};
 }).apply((dataMapper));
