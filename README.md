@@ -53,6 +53,15 @@ If you want to map a part of your service response. You can do it as follows.
 ```
 As a result; dataMapper will fill your ServiceData property with "Items" property of your service response.
 
+##mapConfig Sample
+
+[
+	{source: 'sourceField', destination: 'destinationField'},
+	{source: 'sourceField', ignore: true}
+]
+
+If mapConfig parameter is null or empty it will run using default mappings.
+
 #Installation
 
 ##Nuget
